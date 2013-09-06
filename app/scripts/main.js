@@ -100,7 +100,9 @@ function addToOrder(item) {
 //  on document ready
 $(document).ready(function(){
   
-  renderList(menu, 'meat', $('.meat-container'))
+  renderList(menu, 'meat', $('.meat-column'))
+  renderList(menu, 'side', $('.side-column'))
+  renderList(menu, 'bev', $('.drink-column'))
  
 })
 	
