@@ -15,6 +15,9 @@ body {
     padding-bottom: 20px;
 }
 
+.active {
+    margin-top: 5px;
+}
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,
@@ -33,7 +36,7 @@ body {
     margin-top: 0;
     margin-bottom: 0;
     line-height: 40px;
-    padding-bottom: 19px;
+    padding-bottom: 15px;
 }
 
 /* Custom page footer */
@@ -48,9 +51,9 @@ body {
 }
 /*begin button div*/
 .button-box {
-   /* border: 1px solid grey;
-    height: 300px;
-    width: 525px;*/
+    display: inline-block;
+    border: 1px solid black;
+    width: 525px;
 }
 
 
@@ -68,6 +71,13 @@ body {
     margin: 10px 10px;
 }
 /*end button div*/
+
+.table-order {
+    display: inline-block;
+    height: 200px;
+    width: 100px;
+    background: white;
+}
 
 /* Main marketing message and sign up button */
 .jumbotron {
