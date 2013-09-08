@@ -89,7 +89,7 @@ function renderList(list, foodType, parentElem) {
 // example of an addToOrder thing
 function addToOrder(item) {
  
-  itemObject = _.findWhere(coolFoods, {id: $(item).attr(id) })
+  itemObject = _.findWhere(menu, {id: $(item).attr(id) })
  
   order.push(itemObject)
  
