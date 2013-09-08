@@ -63,6 +63,7 @@ order = []
 // `list` - expects an array of items,
 // `foodType` - a type 'string' for filtering only one type of items
 // `parentElem` - a jQuery object in which to add the rendered buttons
+
  
 function renderList(list, foodType, parentElem) {
  
@@ -73,35 +74,38 @@ function renderList(list, foodType, parentElem) {
   filteredList.forEach(function(item){
  
     // the template for creating a button
-    var elem = $('<div class="btn btn-succes' + foodType + '" id="'+ item.id +'">' + item.name +'</div>')
-    
+    var elem = $('<div class="btn btn-primary button ourbutton' + foodType + '" id="'+ item.id +'">' + item.name +'</div>')
+
+
+
     // click event for this button
-    elem.click(function(){
-      addToOrder(this)
-    })
- 
+    elem.click(function(item){
+    	addToOrder(item.price);
+    	addToOrder(item.name)
+    });
+
+    
     // add the button to its parent element
     parentElem.append(elem)
-  })
- 
-}
+  });
+
+};	
+
+
  
 // example of an addToOrder thing
 function addToOrder(item) {
  
-  itemObject = _.findWhere(coolFoods, {id: $(item).attr(id) })
- 
+  itemObject = _.findWhere(menu, {id:$('item').attr('id')});
   order.push(itemObject)
  
-  adjustPrice()
- 
-}
+};
  
 //  on document ready
 $(document).ready(function(){
   
-  renderList(menu, 'meat', $('.meat-column'))
-  renderList(menu, 'side', $('.side-column'))
+  renderList(menu, 'meat', $('.meat-column'));
+  renderList(menu, 'side', $('.sides-column'));
   renderList(menu, 'bev', $('.drink-column'))
  
 })
