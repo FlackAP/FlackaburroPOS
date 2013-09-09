@@ -63,19 +63,30 @@ function renderButtons(list, foodType, parentElem) {
   filteredList.forEach(function(item){
     var elem = $('<div class="btn btn-primary button ourbutton' + foodType + '" id="'+ item.id +'">' + item.name +'</div>')
     elem.click(function(item){
-      addToOrder(item);
+      addToOrder(this);
     });
 
     parentElem.append(elem)
   });
 };	
 
-function addToOrder(item) {
- 
-  var itemObject = _.findWhere(menu, {id:$(item).attr('id')});
+function addToOrder(item) {  
+  var table = $('table');
+  table.html('');
+  console.log($(item).attr('id'))
+  var itemObject = _.findWhere(menu, {id: parseInt($(item).attr('id'))});
   order.push(itemObject);
+  for (var i = 0; i < order.length; i++) {
+  
+    console.log(order[i].name)
+    $('table').append($('<tr><td>'+order[i].name+'</td><td>'+order[i].price+'</td></tr>'))
+  };
 
 };
+
+
+
+
  
 $(document).ready(function(){
   renderButtons(menu, 'meat', $('.meat-column'));
