@@ -1,5 +1,5 @@
 // the array of stuff for our menu
-var menu = [
+menu = [
   {
     type: 'meat',
     name: 'Salmon',
@@ -55,54 +55,31 @@ var menu = [
   	id: 9
   }
 ]
- 
-// the array of things that have been ordered
+
 order = []
  
-// renders buttons and adds a click event to each
-// `list` - expects an array of items,
-// `foodType` - a type 'string' for filtering only one type of items
-// `parentElem` - a jQuery object in which to add the rendered buttons
- 
-function renderList(list, foodType, parentElem) {
- 
-  // get an array of only one type of food (based on type argument)
+function renderButtons(list, foodType, parentElem) {
   var filteredList = _.where(list, {type: foodType})
- 
-  // loop through array of filtered foods
   filteredList.forEach(function(item){
- 
-    // the template for creating a button
-    var elem = $('<div class="btn btn-succes' + foodType + '" id="'+ item.id +'">' + item.name +'</div>')
-    
-    // click event for this button
-    elem.click(function(){
-      addToOrder(this)
-    })
- 
-    // add the button to its parent element
+    var elem = $('<div class="btn btn-primary button ourbutton' + foodType + '" id="'+ item.id +'">' + item.name +'</div>')
+    elem.click(function(item){
+      addToOrder(item);
+    });
+
     parentElem.append(elem)
-  })
- 
-}
- 
-// example of an addToOrder thing
+  });
+};	
+
 function addToOrder(item) {
  
-  itemObject = _.findWhere(menu, {id: $(item).attr(id) })
+  var itemObject = _.findWhere(menu, {id:$(item).attr('id')});
+  order.push(itemObject);
+
+};
  
-  order.push(itemObject)
- 
-  adjustPrice()
- 
-}
- 
-//  on document ready
 $(document).ready(function(){
-  
-  renderList(menu, 'meat', $('.meat-column'))
-  renderList(menu, 'side', $('.side-column'))
-  renderList(menu, 'bev', $('.drink-column'))
- 
+  renderButtons(menu, 'meat', $('.meat-column'));
+  renderButtons(menu, 'side', $('.sides-column'));
+  renderButtons(menu, 'bev', $('.drink-column')) 
 })
 	
