@@ -9,6 +9,15 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
     padding: 0.2em 0;
 }
 
+table {
+    display: inline-block;
+    position: relative;
+    top: 23px;
+    border: 1px solid black;
+    height: 200px;
+    width: 200px;
+    background: grey;
+}
 /* Space out content a bit */
 body {
     padding-top: 30px;
@@ -44,6 +53,12 @@ body {
     padding-top: 19px;
     color: #777;
     border-top: 1px solid #e5e5e5;
+}
+
+.footer p {
+    float: right;
+    position: relative;
+    bottom: 8px;
 }
 
 .container-narrow > hr {
@@ -100,6 +115,7 @@ body {
     margin-top: 28px;
 }
 
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
     .container {
@@ -117,9 +133,7 @@ body {
         padding-right: 0;
     }
     /* Space out the masthead */
-    .header {
-        margin-bottom: 30px;
-    }
+
     /* Remove the bottom border on the jumbotron for visual effect */
     .jumbotron {
         border-bottom: 0;
