@@ -71,26 +71,29 @@ function renderButtons(list, foodType, parentElem) {
 };	
 
 function addToOrder(item) {  
-  var table = $('table');
+  var table = $('.ordered');
   table.html('');
   console.log($(item).attr('id'))
   var itemObject = _.findWhere(menu, {id: parseInt($(item).attr('id'))});
   order.push(itemObject);
+  price=0;
+
   for (var i = 0; i < order.length; i++) {
-  
     console.log(order[i].name)
-    $('table').append($('<tr><td>'+order[i].name+'</td><td>'+order[i].price+'</td></tr>'))
+    $('table').prepend($('<tr><td class=\'ordered\'>'+order[i].name+'</td><td class=\'ordered\'>'+order[i].price+'</td></tr>'));
+    price=price + order[i].price
   };
+  $('.total-price').text(price)
+
+
 
 };
-
-
 
 
  
 $(document).ready(function(){
   renderButtons(menu, 'meat', $('.meat-column'));
   renderButtons(menu, 'side', $('.sides-column'));
-  renderButtons(menu, 'bev', $('.drink-column')) 
+  renderButtons(menu, 'bev', $('.drink-column'));
 })
 	
