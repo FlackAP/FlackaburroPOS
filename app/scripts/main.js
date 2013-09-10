@@ -80,7 +80,7 @@ function addToOrder(item) {
 
   for (var i = 0; i < order.length; i++) {
     console.log(order[i].name)
-    $('table').prepend($('<tr><td class=\'ordered\'>'+order[i].name+'</td><td class=\'ordered\'>'+order[i].price+'</td></tr>'));
+    $('table').prepend($('<tr><td class=\'ordered name\'>'+order[i].name+'</td><td class=\'ordered price\'>' + '$' +order[i].price+'</td></tr>'));
     price=price + order[i].price
   };
   $('.total-price').text(price)
