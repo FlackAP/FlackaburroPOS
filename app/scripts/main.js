@@ -63,23 +63,37 @@ function renderButtons(list, foodType, parentElem) {
   filteredList.forEach(function(item){
     var elem = $('<div class="btn btn-primary button ourbutton' + foodType + '" id="'+ item.id +'">' + item.name +'</div>')
     elem.click(function(item){
-      addToOrder(item);
+      addToOrder(this);
     });
 
     parentElem.append(elem)
   });
 };	
 
-function addToOrder(item) {
- 
-  var itemObject = _.findWhere(menu, {id:$(item).attr('id')});
+function addToOrder(item) {  
+  var table = $('.ordered');
+  table.html('');
+  console.log($(item).attr('id'))
+  var itemObject = _.findWhere(menu, {id: parseInt($(item).attr('id'))});
   order.push(itemObject);
+  price=0;
+
+  for (var i = 0; i < order.length; i++) {
+    console.log(order[i].name)
+    $('table').prepend($('<tr><td class=\'ordered name\'>'+order[i].name+'</td><td class=\'ordered price\'>' + '$' +order[i].price+'</td></tr>'));
+    price=price + order[i].price
+  };
+  $('.total-price').text(price)
+
+
 
 };
+
+
  
 $(document).ready(function(){
   renderButtons(menu, 'meat', $('.meat-column'));
   renderButtons(menu, 'side', $('.sides-column'));
-  renderButtons(menu, 'bev', $('.drink-column')) 
+  renderButtons(menu, 'bev', $('.drink-column'));
 })
 	

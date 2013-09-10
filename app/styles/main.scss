@@ -12,11 +12,17 @@ $icon-font-path: "/bower_components/sass-bootstrap/fonts/";
 table {
     display: inline-block;
     position: relative;
-    top: 23px;
-    border: 1px solid black;
-    height: 200px;
+    top: 19px;
+    color: #fff;
+    height: 195px;
     width: 200px;
-    background: grey;
+    background: #bcbcbc;
+    box-shadow: inset 0 0 10px #888;
+    padding-top: 4px;
+}
+
+.scroll {
+    overflow: auto;
 }
 /* Space out content a bit */
 body {
@@ -46,12 +52,18 @@ body {
     margin-bottom: 0;
     line-height: 40px;
     padding-bottom: 15px;
+    position: relative;
+    top: 10px;
+    left: 13px;
 }
 
+.text-muted {
+    text-shadow: 1px 2px 3px #fff;
+}
 /* Custom page footer */
 .footer {
     padding-top: 19px;
-    color: #777;
+    color: #999999;
     border-top: 1px solid #e5e5e5;
 }
 
@@ -59,6 +71,8 @@ body {
     float: right;
     position: relative;
     bottom: 8px;
+    right: 30px;
+    text-shadow: 1px 1px 2px #fff
 }
 
 .container-narrow > hr {
@@ -92,9 +106,42 @@ body {
     display: inline-block;
     height: 200px;
     width: 210px;
-    background: white;
 }
 
+.total-cell {
+    position: relative;
+    bottom: 0;
+    left: 10px;
+    text-shadow: 1px 1px 3px grey;
+}
+
+.total-price {
+    position: absolute;
+    right: 15px;
+    text-shadow: 1px 1px 3px grey;
+}
+
+td.ordered.name {
+    position: relative;
+    left: 10px;
+    text-shadow: 1px 1px 3px grey;
+}
+
+td.ordered.price {
+    position: absolute;
+    right: 15px;
+    text-shadow: 1px 1px 3px grey;
+}
+
+.food.list{
+    float: right;
+}
+
+table.price {
+    position: relative;
+    right: 0;
+}
+    
 /* Main marketing message and sign up button */
 .jumbotron {
     text-align: center;
@@ -139,3 +186,4 @@ body {
         border-bottom: 0;
     }
 }
+
